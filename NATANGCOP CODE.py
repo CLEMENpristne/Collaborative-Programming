@@ -1,25 +1,40 @@
+t1 = float(input("Enter Tentative Q1 Score: "))
+t2 = float(input("Enter Tentative Q2 Score: "))
+t3 = float(input("Enter Tentative Q3 Score: "))
+t4 = float(input("Enter Tentative Q4 Score: "))
 
-t1 = float(input( "Enter Tentative Q1 Score: " ) )
-t2 = float(input( "Enter Tentative Q2 Score: " ) )
-t3 = float(input( "Enter Tentative Q3 Score: : " ) )
-average = (t1 + t2 + t3) / 3
-
-print(average)
-
-# Q1 = Tentative Q1
+# Quarter grades
 q1 = t1
+q2 = (q1 + 2 * t2) / 3
+q3 = (q2 + 2 * t3) / 3
+q4 = (q3 + 2 * t4) / 3
 
-#Q2 = (Q1 + 2*Tentative Q2)
+def get_equivalent(grade):
+    if grade >= 96:
+        return 1.00, "EXCELLENT"
+    elif grade >= 90:
+        return 1.25, "VERY GOOD"
+    elif grade >= 84:
+        return 1.50, "VERY GOOD"
+    elif grade >= 78:
+        return 1.75, "GOOD"
+    elif grade >= 72:
+        return 2.00, "GOOD"
+    elif grade >= 66:
+        return 2.25, "SATISFACTORY"
+    elif grade >= 60:
+        return 2.50, "SATISFACTORY"
+    elif grade >= 55:
+        return 2.75, "FAIR"
+    elif grade >= 50:
+        return 3.00, "FAIR"
+    elif grade >= 40:
+        return 4.00, "FAILED ON CONDITION"
+    else:
+        return 5.00, "FAILED"
 
-def get_gwa(average)
-if average >= 96:  print(1.00)
-elif average >= 90: print(1.25)
-elif average >= 84: print(1.50)
-elif average >= 78: print(1.75)
-elif average >= 72: print(2.00)
-elif average >= 66: print(2.25)
-elif average >= 60: print(2.50)
-elif average >= 55: print(2.75)
-elif average >= 50: print(3.00)
-elif average >= 40: print(4.00)
-else: print(5.00)
+equivalent, adjective = get_equivalent(q4)
+
+print(f"\nFinal Quarter Grade: {q4:.2f}")
+print(f"Equivalent: {equivalent:.2f}")
+print(f"Adjectival Equivalent: {adjective}")
